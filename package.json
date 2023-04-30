@@ -12,6 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@skeletonlabs/skeleton": "^1.2.5",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -32,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"pnpm": "^8.3.1"
+		"pnpm": "^8.3.1",
+		"pocketbase": "^0.14.3"
 	}
 }
