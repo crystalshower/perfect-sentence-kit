@@ -13,7 +13,7 @@ export const actions = {
 		try {
 			await pb.collection('users').authWithPassword(username, password);
 			console.log(pb.authStore.token);
-		} catch (error) {
+		} catch (err : any) {
 			/*
                 Error is returned as follow:
                 {
@@ -24,7 +24,7 @@ export const actions = {
                     originalError: null
                 }
             */
-			return fail(400, { code: error.status, response: "Invalid Password" });
+			return fail(400, { code: err.status, response: "Invalid Password" });
 		}
 	}
 } satisfies Actions;

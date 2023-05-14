@@ -58,7 +58,7 @@
 				</div>
 				<div>
 					<button
-						class="btn bg-initial text-white bg-[#4A4954] rounded-md text-base w-full font-bold transition hover:border cursor-pointer"
+						class="btn bg-initial text-white bg-[#4A4954] rounded-md text-base w-full font-bold transition cursor-pointer"
 					>
 						Login
 					</button>
