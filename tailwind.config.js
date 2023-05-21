@@ -8,7 +8,16 @@ export default {
 		)
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+      },
+      colors: {
+        'mat-black-slate': '#2D2F31',
+        'mat-black-primary': '#1F1F1F',
+      }
+    },
+    
   },
   plugins: [
 		// 3. Append the Skeleton plugin to the end of this list
