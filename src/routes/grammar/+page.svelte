@@ -11,8 +11,8 @@
                       <h1 class="unstyled font-extrabold text-9xl">Grammar</h1>
                       <p>Translate your word into perfect human-like result</p>
                     </div>
-                  </div>                  
-            </div>              
+                  </div>                    
+            </div>           
         </div>
     </div>
 </section>
