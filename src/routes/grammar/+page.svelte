@@ -7,36 +7,38 @@
 <section>
 	<div>
 		<div>
-			<Backdrop {backdrop} title="Grammar" description="Write as you are native speaker" />
-			<div class="flex flex-col px-56">
-				<div class="flex flex-col">
+			<div class="w-full p-2 min-h-[75vh] max-h-[75vh] rounded-lg">
+				<Backdrop {backdrop} title="Grammar" description="Write as you are native speaker" />
+				<div class="flex flex-col px-56">
+					<div class="flex flex-col">
+						<button
+							class="px-4 mb-8 rounded-full bg-[#8DCDFF] w-[172px] h-[56px] text-black flex flex-row justify-center pt-4 hover:bg-[#81C7FE]"
+						>
+							<div><img src={translatenw} alt="translatenw" class="w-8" /></div>
+							<div class="text-lg font-medium pl-5">English</div>
+						</button>
+					</div>
+					<div class="w-full px-4 mb-8">
+						<textarea
+							type="text"
+							id="message"
+							class="w-[894px] h-[405px] bg-transparent border border-solid hover:border-[#8DCDFF] text-white p-3 rounded-2xl focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+						/>
+					</div>
 					<button
-						class="px-4 mb-8 rounded-full bg-[#8DCDFF] w-[172px] h-[56px] text-black flex flex-row justify-center pt-4 hover:bg-[#81C7FE]"
+						class="px-4 mb-8 m-auto rounded-full bg-[#8DCDFF] w-[230px] h-[56px] text-black flex flex-row justify-center pt-4 hover:bg-[#81C7FE]"
 					>
 						<div><img src={translatenw} alt="translatenw" class="w-8" /></div>
-						<div class="text-lg font-medium pl-5">English</div>
+						<div class="text-base font-medium pl-5">Correct Grammar</div>
 					</button>
-				</div>
-				<div class="w-full px-4 mb-8">
-					<textarea
-						type="text"
-						id="message"
-						class="w-[894px] h-[405px] bg-transparent border border-solid hover:border-[#8DCDFF] text-white p-3 rounded-2xl focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
-					/>
-				</div>
-				<button
-					class="px-4 mb-8 m-auto rounded-full bg-[#8DCDFF] w-[230px] h-[56px] text-black flex flex-row justify-center pt-4 hover:bg-[#81C7FE]"
-				>
-					<div><img src={translatenw} alt="translatenw" class="w-8" /></div>
-					<div class="text-base font-medium pl-5">Correct Grammar</div>
-				</button>
-				<div class="px-4 mb-8">
-					<label for="message" class="text-white font-medium text-xl">Result</label>
-				</div>
-				<div class="px-4 mb-8 w-full">
-					<button
-						class=" w-[894px] h-[405px] bg-transparent border border-solid hover:border-[#8DCDFF] text-white p-3 rounded-2xl focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
-					/>
+					<div class="px-4 mb-8">
+						<label for="message" class="text-white font-medium text-xl">Result</label>
+					</div>
+					<div class="px-4 mb-8 w-full">
+						<button
+							class=" w-[894px] h-[405px] bg-transparent border border-solid hover:border-[#8DCDFF] text-white p-3 rounded-2xl focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>

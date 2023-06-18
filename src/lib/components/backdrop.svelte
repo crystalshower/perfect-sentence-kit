@@ -4,7 +4,7 @@
     export let description: string;
 </script>
 
-<div class="w-full p-2 min-h-[75vh] max-h-[75vh] rounded-lg">
+
     <div class="relative rounded-2xl overflow-hidden h-max">
         <img
             src={backdrop}
@@ -18,4 +18,3 @@
             <p>{description}</p>
         </div>
     </div> 
-</div>
