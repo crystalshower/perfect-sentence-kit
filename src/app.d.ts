@@ -1,23 +1,20 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
-declare namespace App {
-	type PocketBase = import('pocketbase').default;
-
-	interface Locals {
-		user: {
-			id: string | undefined;
-			name: string;
-			role: string;
-			username: string;
-		} | undefined,
-		pb?: PocketBase;
+declare global {
+	namespace App {
+		interface Locals {
+			auth: import("lucia-auth").AuthRequest;
+		}
 	}
-
-	// interface Locals {
-	// 	session: import('svelte-kit-cookie-session').Session<SessionData>;
-	// }
-
-	// interface PageData {
-	// 	session: SessionData;
-	// }
 }
+
+/// <reference types="lucia-auth" />
+declare global {
+	namespace Lucia {
+		type Auth = import("$lib/server/lucia").Auth;
+		type UserAttributes = {
+			email: string;
+		};
+	}
+}
+
+// THIS IS IMPORTANT!!!
+export {};
