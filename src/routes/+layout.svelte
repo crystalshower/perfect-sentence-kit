@@ -1,10 +1,8 @@
 <script>
-	import '@skeletonlabs/skeleton/themes/theme-gold-nouveau.css';
-	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.css';
 	import '@fontsource/plus-jakarta-sans';
 	import Navigation from '$lib/components/navigation.svelte';
-
+ 
 	export let data
 </script>
 
