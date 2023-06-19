@@ -9,7 +9,7 @@
         <img
             src={backdrop}
             alt="Backdrop"
-            class="object-cover min-w-full max-h-[423px] 2xl:max-h-[692px]"
+            class="object-cover min-w-full max-h-[423px] 2xl:max-h-[580px] xl:max-h-[550px]"
         />
         <div
             class="absolute inset-0 flex flex-col items-baseline justify-center text-white space-y-2 left-[5%]"
