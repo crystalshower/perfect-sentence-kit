@@ -1,30 +1,57 @@
-import { fail } from '@sveltejs/kit';
-import type { Actions } from './$types';
-import PocketBase from 'pocketbase';
+import { fail, redirect } from '@sveltejs/kit';
+import type { Actions, PageServerLoad } from './$types';
+import { auth } from '$lib/server/lucia';
+import { setResponse } from '@sveltejs/kit/node';
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+export const load = (async ({ locals }) => {
+	const { session } = await locals.auth.validateUser();
+
+	if (session) {
+		throw redirect(302, '/');
+	}
+}) satisfies PageServerLoad;
 
 export const actions = {
-	login: async ({ request }) => {
-		const data = await request.formData();
-		const username = data.get('username') as string;
+	login: async ({ request, locals }) => {
+		const data     = await request.formData();
+		const email    = data.get('email') as string;
 		const password = data.get('password') as string;
 
-		try {
-			await pb.collection('users').authWithPassword(username, password);
-			console.log(pb.authStore.token);
-		} catch (err : any) {
-			/*
-                Error is returned as follow:
-                {
-                    url: 'http://127.0.0.1:8090/api/collections/users/auth-with-password',
-                    status: 400,
-                    response: { code: 400, message: 'Failed to authenticate.', data: {} },
-                    isAbort: false,
-                    originalError: null
-                }
-            */
-			return fail(400, { code: err.status, response: "Invalid Password" });
+		if (typeof email !== 'string' || typeof password !== 'string') {
+			console.log('fail')
+			return fail(400, { invalid: true });
 		}
+
+		try {
+			const user = await auth.createUser({
+				primaryKey: {
+					providerId: 'username',
+					providerUserId: email,
+					password
+				},
+				attributes: {
+					email
+				}
+			});
+
+			const session = await auth.createSession(user.id);
+			locals.auth.setSession(session);
+		} catch(err) {
+			console.log(err)
+			return fail(400, { invalid: true });
+		}
+
+		// try {
+		// 	const key     = await auth.useKey('username', email, password);
+		// 	const session = await auth.createSession(key.userId);
+			
+		// 	locals.auth.setSession(session);
+		// } catch(err) {
+		// 	console.log(err)
+
+		// 	return fail(400, { credential: true });
+		// }
+
+		throw redirect(302, '/translate');
 	}
 } satisfies Actions;
