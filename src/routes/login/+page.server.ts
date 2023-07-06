@@ -23,34 +23,15 @@ export const actions = {
 		}
 
 		try {
-			const user = await auth.createUser({
-				primaryKey: {
-					providerId: 'username',
-					providerUserId: email,
-					password
-				},
-				attributes: {
-					email
-				}
-			});
-
-			const session = await auth.createSession(user.id);
+			const key     = await auth.useKey('username', email, password);
+			const session = await auth.createSession(key.userId);
+			
 			locals.auth.setSession(session);
 		} catch(err) {
 			console.log(err)
-			return fail(400, { invalid: true });
+
+			return fail(400, { credential: true });
 		}
-
-		// try {
-		// 	const key     = await auth.useKey('username', email, password);
-		// 	const session = await auth.createSession(key.userId);
-			
-		// 	locals.auth.setSession(session);
-		// } catch(err) {
-		// 	console.log(err)
-
-		// 	return fail(400, { credential: true });
-		// }
 
 		throw redirect(302, '/translate');
 	}

@@ -28,6 +28,13 @@
 				</div>
 				<span class="font-bold mx-auto text-center text-xs text-gray-300">Grammar</span>
 			</a>
+
+			<a class="group w-3/4 mx-auto flex flex-col" href="/paraphrase" data-sveltekit-replacestate>
+				<div class="group-hover:bg-gray-600 group-hover:bg-opacity-30 rounded-3xl py-1 transition duration-200 ease-in-out">
+					<img src={grammarIcon} alt="Home" class="m-auto" />
+				</div>
+				<span class="font-bold mx-auto text-center text-xs text-gray-300">Paraphrase</span>
+			</a>
 		</div>
 	</div>
 </nav>
